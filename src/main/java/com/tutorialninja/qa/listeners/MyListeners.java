@@ -67,8 +67,6 @@ public class MyListeners implements ITestListener {
 	@Override
 	public void onFinish(ITestContext context) {
 		extentreport.flush();
-		
-		//to auto launch the extent report add below line of code
 		String pathOfExtentReport=System.getProperty("user.dir")+"\\test-output\\ExtentReports\\extentReport.html";
 		File extentReport=new File(pathOfExtentReport);
 		try {

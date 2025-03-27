@@ -17,20 +17,16 @@ public class Base {
 	public Properties prop;
 	public Properties testprop;
 	
-	
-	//below method is to load the properties file-which is changed to constructor
 	public Base() {
 	
 		testprop=new Properties();
 		File f1 = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\tutorialninja\\qa\\testdata\\testdata.properties");
 		
-		//this properties is from java
 		prop=new Properties();
 		File f = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\tutorialninja\\qa\\config\\config.properties");
 
 		
 		try {
-				//fileinput stream require file
 			FileInputStream fis = new FileInputStream(f);
 			prop.load(fis);
 			}catch(Exception e) {
@@ -46,7 +42,6 @@ public class Base {
 	}
 	
 	public WebDriver initialiseBrowser(String browsername) {
-		//from seleniun4.6 it is coming with drivers with inbuild so no need to add driver folder or define it again
 		
 		if(browsername.equalsIgnoreCase("chrome")) {
 			driver= new ChromeDriver();

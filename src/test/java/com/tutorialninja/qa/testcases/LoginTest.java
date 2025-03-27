@@ -17,12 +17,10 @@ import com.tutorialninja.qa.utils.Utilities;
 public class LoginTest extends Base{
 	
 	public LoginTest() {
-		super();//what happends here is it will make call to the super call which is base class and then the initialisation of properties class takes place
-		
+		super();	
 	}
 	LoginPage loginPage;	
 	public WebDriver driver;
-	
 	
 	@BeforeMethod
 	public void setup() {
@@ -32,7 +30,6 @@ public class LoginTest extends Base{
 		loginPage=homePage.navigatetoLoginPage();
 	}
 	
-	//to get data from excel
 	@DataProvider(name="validcreds")
 	public Object[][] supplydata(){
 		
@@ -42,8 +39,7 @@ public class LoginTest extends Base{
 	}
 	
 	@Test(priority=1,dataProvider="validcreds")
-	public void verifyLoginWithValidCreds(String email, String password) {
-		//driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("validemail"));-this is used when we provide data from the properties file		
+	public void verifyLoginWithValidCreds(String email, String password) {		
 		AccountPage accpage=loginPage.Login(email, password);
 		Assert.assertTrue(accpage.editinfooption());	
 	}
